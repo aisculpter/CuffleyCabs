@@ -17,6 +17,7 @@
 }
 
 .animate-typing {
+  display: inline-block;
   animation: typing 3s steps(40, end) forwards;
   white-space: nowrap;
   overflow: hidden;

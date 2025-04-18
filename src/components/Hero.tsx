@@ -51,13 +51,9 @@ const Hero: React.FC = () => {
           <h1 
             ref={taglineRef}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 animate-typing"
-            style={{ 
-              maxWidth: '80%',
-              margin: '0 auto'
-              }}
                 >
           <span className="text-[#D4AF37]">Wherever</span> You Need To Go
-</h1>
+        </h1>
           
           {/* Subtitle with fade in */}
           <p

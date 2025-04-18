@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-typing {
+  animation: typing 3s steps(40, end) forwards;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 4px solid #D4AF37;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-in forwards;
+  animation-delay: 2.5s;
+}

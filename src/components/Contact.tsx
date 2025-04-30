@@ -132,8 +132,8 @@ const Contact: React.FC = () => {
 
               {submitSuccess ? (
                 <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
-                  <strong className="font-bold">Thank you! </strong>
-                  <span className="block sm:inline">Your booking request has been received. We'll contact you shortly to confirm details.</span>
+                  <strong className="font-bold">Thank you for booking request! </strong>
+                  <span className="block sm:inline">Please note that this is not a confirmation. A member of our team will contact you shortly to review and confirm the details.</span>
                 </div>
               ) : (
                 <form

@@ -38,7 +38,7 @@ const Hero: React.FC = () => {
       {/* Static Car Image */}
       <div className="absolute inset-0 flex items-center justify-center">
         <img
-          src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750"
+          src="bg-image.webp"
           alt="Luxury Car"
           className="w-full h-full object-cover opacity-30"
         />

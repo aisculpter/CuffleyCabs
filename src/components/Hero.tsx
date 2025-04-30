@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
+import bgImg from '../bg-img.jpg'; 
 
 const Hero: React.FC = () => {
   const taglineRef = useRef<HTMLHeadingElement>(null);
@@ -38,7 +39,7 @@ const Hero: React.FC = () => {
       {/* Static Car Image */}
       <div className="absolute inset-0 flex items-center justify-center">
         <img
-          src="/bg-img.jpg"
+          src={bgImg}
           alt="Luxury Car"
           className="w-full h-full object-cover opacity-30"
         />

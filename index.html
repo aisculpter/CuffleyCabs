@@ -10,4 +10,19 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
+
+  <form name="booking" method="POST" data-netlify="true" hidden>
+    <input type="text" name="name" />
+    <input type="tel" name="phone" />
+    <input type="email" name="email" />
+    <input type="text" name="pickupLocation" />
+    <input type="text" name="destination" />
+    <input type="date" name="date" />
+    <input type="time" name="time" />
+    <select name="passengers">
+      <option>1</option>
+    </select>
+    <textarea name="message"></textarea>
+  </form>
+  
 </html>

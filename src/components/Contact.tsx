@@ -41,32 +41,20 @@ const Contact: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Let Netlify handle the form submission
     const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    
     fetch('/', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(new FormData(form) as any).toString(),
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams(Array.from(formData.entries()) as [string, string][]).toString(),
     })
       .then(() => {
         setIsSubmitting(false);
         setSubmitSuccess(true);
-        
-        // Reset form after success
-        setTimeout(() => {
-          setSubmitSuccess(false);
-          setFormData({
-            name: '',
-            phone: '',
-            email: '',
-            pickupLocation: '',
-            destination: '',
-            date: '',
-            time: '',
-            passengers: '1',
-            message: ''
-          });
-        }, 3000);
+        form.reset();
       })
       .catch((error) => {
         console.error('Form submission error:', error);
@@ -152,9 +140,16 @@ const Contact: React.FC = () => {
                   name="booking"
                   method="POST"
                   data-netlify="true"
+                  netlify-honeypot="bot-field"
                   onSubmit={handleSubmit}
+                  encType="application/x-www-form-urlencoded"
                 >
                   <input type="hidden" name="form-name" value="booking" />
+                  <p className="hidden">
+                    <label>
+                      Don't fill this out if you're human: <input name="bot-field" />
+                    </label>
+                  </p>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>

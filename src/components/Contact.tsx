@@ -11,6 +11,7 @@ interface FormData {
   time: string;
   passengers: string;
   message: string;
+  'bot-field'?: string;
 }
 
 const Contact: React.FC = () => {
@@ -40,15 +41,18 @@ const Contact: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitSuccess(true);
-      
-      // Reset form after success
-      setTimeout(() => {
-        setSubmitSuccess(false);
+
+    const form = e.target as HTMLFormElement;
+    const data = new FormData(form);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(data as any).toString(),
+    })
+      .then(() => {
+        setIsSubmitting(false);
+        setSubmitSuccess(true);
         setFormData({
           name: '',
           phone: '',
@@ -60,8 +64,14 @@ const Contact: React.FC = () => {
           passengers: '1',
           message: ''
         });
-      }, 3000);
-    }, 1500);
+
+        setTimeout(() => setSubmitSuccess(false), 3000);
+      })
+      .catch((error) => {
+        console.error('Form submission error:', error);
+        setIsSubmitting(false);
+        alert('There was an error sending your request.');
+      });
   };
 
   return (
@@ -138,7 +148,18 @@ const Contact: React.FC = () => {
                   <span className="block sm:inline">Your booking request has been received. We'll contact you shortly to confirm details.</span>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit}>
+                <form
+                  name="booking"
+                  method="POST"
+                  data-netlify="true"
+                  netlify-honeypot="bot-field"
+                  onSubmit={handleSubmit}
+                >
+                  <input type="hidden" name="form-name" value="booking" />
+                  <p className="hidden">
+                    <label>Don’t fill this out if you're human: <input name="bot-field" onChange={handleChange} /></label>
+                  </p>
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
                       <label htmlFor="name" className="block text-gray-700 mb-2">Full Name *</label>

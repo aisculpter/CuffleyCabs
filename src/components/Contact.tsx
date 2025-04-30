@@ -136,159 +136,162 @@ const Contact: React.FC = () => {
                   <span className="block sm:inline">Your booking request has been received. We'll contact you shortly to confirm details.</span>
                 </div>
               ) : (
-                <form 
-                  name="booking"
-                  method="POST"
-                  data-netlify="true"
-                  netlify-honeypot="bot-field"
-                  onSubmit={handleSubmit}
-                  encType="application/x-www-form-urlencoded"
-                >
-                  <input type="hidden" name="form-name" value="booking" />
-                  <p className="hidden">
-                    <label>
-                      Don't fill this out if you're human: <input name="bot-field" />
-                    </label>
-                  </p>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    <div>
-                      <label htmlFor="name" className="block text-gray-700 mb-2">Full Name *</label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="phone" className="block text-gray-700 mb-2">Phone Number *</label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="email" className="block text-gray-700 mb-2">Email Address</label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="pickupLocation" className="block text-gray-700 mb-2">Pickup Location *</label>
-                      <input
-                        type="text"
-                        id="pickupLocation"
-                        name="pickupLocation"
-                        value={formData.pickupLocation}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="destination" className="block text-gray-700 mb-2">Destination *</label>
-                      <input
-                        type="text"
-                        id="destination"
-                        name="destination"
-                        value={formData.destination}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="date" className="block text-gray-700 mb-2">Date *</label>
-                      <input
-                        type="date"
-                        id="date"
-                        name="date"
-                        value={formData.date}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="time" className="block text-gray-700 mb-2">Time *</label>
-                      <input
-                        type="time"
-                        id="time"
-                        name="time"
-                        value={formData.time}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="passengers" className="block text-gray-700 mb-2">Passengers *</label>
-                      <select
-                        id="passengers"
-                        name="passengers"
-                        value={formData.passengers}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
-                      >
-                        {[1, 2, 3, 4, 5, 6, 7, 8].map(num => (
-                          <option key={num} value={num}>{num}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-                  
-                  <div className="mb-6">
-                    <label htmlFor="message" className="block text-gray-700 mb-2">Additional Information</label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      rows={4}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
-                      placeholder="Special requirements, luggage information, etc."
-                    ></textarea>
-                  </div>
-                  
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className={`flex items-center justify-center w-full bg-black text-white py-3 px-4 rounded-md transition-colors duration-300 ${
-                      isSubmitting ? 'opacity-75 cursor-not-allowed' : 'hover:bg-[#D4AF37] hover:text-black'
-                    }`}
-                  >
-                    {isSubmitting ? (
-                      <span>Processing...</span>
-                    ) : (
-                      <>
-                        <MessageSquare size={20} className="mr-2" />
-                        <span>Submit Booking Request</span>
-                      </>
-                    )}
-                  </button>
-                </form>
+                <form
+  name="booking"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  encType="application/x-www-form-urlencoded"
+  onSubmit={handleSubmit}
+>
+  {/* Hidden input for Netlify form name */}
+  <input type="hidden" name="form-name" value="booking" />
+  {/* Honeypot field for bots */}
+  <p className="hidden">
+    <label>
+      Don't fill this out if you're human: <input name="bot-field" />
+    </label>
+  </p>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+    <div>
+      <label htmlFor="name" className="block text-gray-700 mb-2">Full Name *</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        value={formData.name}
+        onChange={handleChange}
+        required
+        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+      />
+    </div>
+
+    <div>
+      <label htmlFor="phone" className="block text-gray-700 mb-2">Phone Number *</label>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        value={formData.phone}
+        onChange={handleChange}
+        required
+        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+      />
+    </div>
+
+    <div>
+      <label htmlFor="email" className="block text-gray-700 mb-2">Email Address</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+      />
+    </div>
+
+    <div>
+      <label htmlFor="pickupLocation" className="block text-gray-700 mb-2">Pickup Location *</label>
+      <input
+        type="text"
+        id="pickupLocation"
+        name="pickupLocation"
+        value={formData.pickupLocation}
+        onChange={handleChange}
+        required
+        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+      />
+    </div>
+
+    <div>
+      <label htmlFor="destination" className="block text-gray-700 mb-2">Destination *</label>
+      <input
+        type="text"
+        id="destination"
+        name="destination"
+        value={formData.destination}
+        onChange={handleChange}
+        required
+        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+      />
+    </div>
+
+    <div>
+      <label htmlFor="date" className="block text-gray-700 mb-2">Date *</label>
+      <input
+        type="date"
+        id="date"
+        name="date"
+        value={formData.date}
+        onChange={handleChange}
+        required
+        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+      />
+    </div>
+
+    <div>
+      <label htmlFor="time" className="block text-gray-700 mb-2">Time *</label>
+      <input
+        type="time"
+        id="time"
+        name="time"
+        value={formData.time}
+        onChange={handleChange}
+        required
+        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+      />
+    </div>
+
+    <div>
+      <label htmlFor="passengers" className="block text-gray-700 mb-2">Passengers *</label>
+      <select
+        id="passengers"
+        name="passengers"
+        value={formData.passengers}
+        onChange={handleChange}
+        required
+        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+      >
+        {[1, 2, 3, 4, 5, 6, 7, 8].map(num => (
+          <option key={num} value={num}>{num}</option>
+        ))}
+      </select>
+    </div>
+  </div>
+
+  <div className="mb-6">
+    <label htmlFor="message" className="block text-gray-700 mb-2">Additional Information</label>
+    <textarea
+      id="message"
+      name="message"
+      value={formData.message}
+      onChange={handleChange}
+      rows={4}
+      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+      placeholder="Special requirements, luggage information, etc."
+    ></textarea>
+  </div>
+
+  <button
+    type="submit"
+    disabled={isSubmitting}
+    className={`flex items-center justify-center w-full bg-black text-white py-3 px-4 rounded-md transition-colors duration-300 ${
+      isSubmitting ? 'opacity-75 cursor-not-allowed' : 'hover:bg-[#D4AF37] hover:text-black'
+    }`}
+  >
+    {isSubmitting ? (
+      <span>Processing...</span>
+    ) : (
+      <>
+        <MessageSquare size={20} className="mr-2" />
+        <span>Submit Booking Request</span>
+      </>
+    )}
+  </button>
+</form>
+
               )}
             </div>
           </div>

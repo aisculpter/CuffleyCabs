@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
 import bgImg from '../bg-img.jpg'; 
+import whtsapp  from '../WhatsAppButtonGreenSmall.png'; 
+
 
 const Hero: React.FC = () => {
   const taglineRef = useRef<HTMLHeadingElement>(null);
@@ -65,16 +67,19 @@ const Hero: React.FC = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in">
-            <a
-              href="tel:+441234567890"
+            <a aria-label="Chat on WhatsApp"
+              href="https://wa.me/+44071200492340"
+              className="bg-transparent border-2 border-white hover:border-[#D4AF37] text-white hover:text-[#D4AF37] px-8 py-3 rounded-md text-lg font-medium transition-colors duration-300 min-w-[200px]">
+              <img alt="Chat on WhatsApp" src={whtsapp} />
+
               className="bg-[#D4AF37] hover:bg-[#C4A030] text-black px-8 py-3 rounded-md text-lg font-medium transition-colors duration-300 min-w-[200px]"
             >
               Call Now
             </a>
-            <a aria-label="Chat on WhatsApp"
-              href="https://wa.me/+44071200492340"
-              className="bg-transparent border-2 border-white hover:border-[#D4AF37] text-white hover:text-[#D4AF37] px-8 py-3 rounded-md text-lg font-medium transition-colors duration-300 min-w-[200px]">
-              <img alt="Chat on WhatsApp" src="WhatsAppButtonGreenSmall.png" />
+            <a
+              href="#booking"
+              className="bg-transparent border-2 border-white hover:border-[#D4AF37] text-white hover:text-[#D4AF37] px-8 py-3 rounded-md text-lg font-medium transition-colors duration-300 min-w-[200px]"
+            >
               Book Online
             </a>
           </div>

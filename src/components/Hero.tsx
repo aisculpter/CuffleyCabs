@@ -69,25 +69,26 @@ const Hero: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in">
             {/* WhatsApp Button */}
             <a
-              aria-label="Chat on WhatsApp"
-              href="https://wa.me/44071200492340"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="min-w-[200px] h-[56px] flex items-center justify-center border-2 border-white hover:border-[#D4AF37] rounded-md transition-colors duration-300 p-1"
-            > 
+            aria-label="Chat on WhatsApp"
+            href="https://wa.me/44071200492340"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full p-1 transition-shadow duration-300 hover:shadow-[0_0_0_3px_#D4AF37] flex items-center justify-center"
+          >
             <img
               src={whtsapp}
               alt="WhatsApp"
-              className="h-full object-contain"
+              className="h-12 w-auto rounded-full"
             />
           </a>
+
 
             {/* Book Online Button */}
             <a
               href="#booking"
-              className="bg-transparent border-2 border-white hover:border-[#D4AF37] text-white hover:text-[#D4AF37] px-8 py-3 rounded-md text-lg font-medium transition-colors duration-300 min-w-[200px]"
-            >
-              Book Online
+              className="rounded-full border-2 border-white hover:border-[#D4AF37] text-white hover:text-[#D4AF37] px-6 py-3 text-lg font-medium transition-all duration-300 min-w-[200px] text-center hover:shadow-[0_0_0_3px_#D4AF37]"
+              >
+                Book Online
             </a>
           </div>
         </div>

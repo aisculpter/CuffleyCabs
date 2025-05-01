@@ -96,7 +96,6 @@ const Hero: React.FC = () => {
           <ChevronDown size={40} />
         </button>
       </div>
-    </section>
   );
 };
 

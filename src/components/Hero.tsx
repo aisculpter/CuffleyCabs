@@ -73,7 +73,7 @@ const Hero: React.FC = () => {
             href="https://wa.me/44071200492340"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-md p-1 transition-shadow duration-300 hover:shadow-[0_0_4px_#D4AF37] flex items-center justify-center"
+            className="rounded-md p-1 flex items-center justify-center"
             >
             <img
               src={whtsapp}
@@ -81,7 +81,7 @@ const Hero: React.FC = () => {
               className="h-12 w-auto rounded-md"
             />
           </a>
-          
+
             {/* Book Online Button */}
             <a
               href="#booking"

@@ -66,15 +66,18 @@ const Hero: React.FC = () => {
             Cuffley's premier car service for local journeys, airport transfers, and nationwide travel
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in">
-            <a aria-label="Chat on WhatsApp"
-              href="https://wa.me/+44071200492340"
-              className="bg-transparent border-2 border-white hover:border-[#D4AF37] text-white hover:text-[#D4AF37] px-8 py-3 rounded-md text-lg font-medium transition-colors duration-300 min-w-[200px]">
-              <img alt="Chat on WhatsApp" src={whtsapp} />
-
-            className="bg-[#D4AF37] hover:bg-[#C4A030] text-black px-8 py-3 rounded-md text-lg font-medium transition-colors duration-300 min-w-[200px]"
-            Call Now
-            </a>
+          <div className="flex items-center justify-center opacity-0 animate-fade-in">
+          <a
+            aria-label="Chat on WhatsApp"
+            href="https://wa.me/44071200492340"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-transparent border-2 border-white hover:border-[#D4AF37] text-white hover:text-[#D4AF37] px-8 py-3 rounded-md text-lg font-medium transition-colors duration-300 min-w-[200px] flex items-center justify-center gap-2"
+            >
+            <img src={whtsapp} alt="WhatsApp" className="w-6 h-6" />
+        WhatsApp
+      </a>
+    </div>
             <a
               href="#booking"
               className="bg-transparent border-2 border-white hover:border-[#D4AF37] text-white hover:text-[#D4AF37] px-8 py-3 rounded-md text-lg font-medium transition-colors duration-300 min-w-[200px]"

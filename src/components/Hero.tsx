@@ -72,9 +72,8 @@ const Hero: React.FC = () => {
               className="bg-transparent border-2 border-white hover:border-[#D4AF37] text-white hover:text-[#D4AF37] px-8 py-3 rounded-md text-lg font-medium transition-colors duration-300 min-w-[200px]">
               <img alt="Chat on WhatsApp" src={whtsapp} />
 
-              className="bg-[#D4AF37] hover:bg-[#C4A030] text-black px-8 py-3 rounded-md text-lg font-medium transition-colors duration-300 min-w-[200px]"
-            >
-              Call Now
+            className="bg-[#D4AF37] hover:bg-[#C4A030] text-black px-8 py-3 rounded-md text-lg font-medium transition-colors duration-300 min-w-[200px]"
+            Call Now
             </a>
             <a
               href="#booking"

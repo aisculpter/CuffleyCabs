@@ -81,8 +81,7 @@ const Hero: React.FC = () => {
               className="h-12 w-auto rounded-md"
             />
           </a>
-
-
+          
             {/* Book Online Button */}
             <a
               href="#booking"

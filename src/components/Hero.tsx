@@ -73,12 +73,12 @@ const Hero: React.FC = () => {
             href="https://wa.me/44071200492340"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full p-1 transition-shadow duration-300 hover:shadow-[0_0_0_3px_#D4AF37] flex items-center justify-center"
-          >
+            className="rounded-md p-1 transition-shadow duration-300 hover:shadow-[0_0_4px_#D4AF37] flex items-center justify-center"
+            >
             <img
               src={whtsapp}
               alt="WhatsApp"
-              className="h-12 w-auto rounded-full"
+              className="h-12 w-auto rounded-md"
             />
           </a>
 
@@ -86,10 +86,11 @@ const Hero: React.FC = () => {
             {/* Book Online Button */}
             <a
               href="#booking"
-              className="rounded-full border-2 border-white hover:border-[#D4AF37] text-white hover:text-[#D4AF37] px-6 py-3 text-lg font-medium transition-all duration-300 min-w-[200px] text-center hover:shadow-[0_0_0_3px_#D4AF37]"
-              >
-                Book Online
+              className="rounded-md border-2 border-white hover:border-[#D4AF37] text-white hover:text-[#D4AF37] px-6 py-3 text-lg font-medium transition-all duration-300 min-w-[200px] text-center hover:shadow-[0_0_4px_#D4AF37]"
+            >
+              Book Online
             </a>
+
           </div>
         </div>
 

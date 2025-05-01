@@ -71,10 +71,10 @@ const Hero: React.FC = () => {
             >
               Call Now
             </a>
-            <a
-              href="#booking"
-              className="bg-transparent border-2 border-white hover:border-[#D4AF37] text-white hover:text-[#D4AF37] px-8 py-3 rounded-md text-lg font-medium transition-colors duration-300 min-w-[200px]"
-            >
+            <a aria-label="Chat on WhatsApp"
+              href="https://wa.me/+44071200492340"
+              className="bg-transparent border-2 border-white hover:border-[#D4AF37] text-white hover:text-[#D4AF37] px-8 py-3 rounded-md text-lg font-medium transition-colors duration-300 min-w-[200px]">
+              <img alt="Chat on WhatsApp" src="WhatsAppButtonGreenSmall.png" />
               Book Online
             </a>
           </div>

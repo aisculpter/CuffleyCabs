@@ -75,8 +75,7 @@ const Hero: React.FC = () => {
               rel="noopener noreferrer"
               className="bg-transparent border-2 border-white hover:border-[#D4AF37] text-white hover:text-[#D4AF37] px-8 py-3 rounded-md text-lg font-medium transition-colors duration-300 min-w-[200px] flex items-center justify-center gap-2"
             >
-              <img src={whtsapp} alt="WhatsApp" className="w-6 h-6" />
-              WhatsApp
+              <img src={whtsapp} alt="WhatsApp" className="w-8 h-8" />
             </a>
 
             {/* Book Online Button */}

@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
-import bgImg from '../bg-img.jpg'; 
-import whtsapp  from '../WhatsAppButtonGreenSmall.png'; 
-
+import bgImg from '../bg-img.jpg';
+import whtsapp from '../WhatsAppButtonGreenSmall.png';
 
 const Hero: React.FC = () => {
   const taglineRef = useRef<HTMLHeadingElement>(null);
@@ -38,7 +37,7 @@ const Hero: React.FC = () => {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-800 opacity-90"></div>
 
-      {/* Static Car Image */}
+      {/* Static Background Image */}
       <div className="absolute inset-0 flex items-center justify-center">
         <img
           src={bgImg}
@@ -51,14 +50,14 @@ const Hero: React.FC = () => {
       <div className="relative h-full flex flex-col items-center justify-center px-4 text-center">
         <div className="space-y-6">
           {/* Animated Tagline */}
-          <h1 
+          <h1
             ref={taglineRef}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 animate-typing"
-                >
-          <span className="text-[#D4AF37]">Wherever</span> You Need To Go
-        </h1>
-          
-          {/* Subtitle with fade in */}
+          >
+            <span className="text-[#D4AF37]">Wherever</span> You Need To Go
+          </h1>
+
+          {/* Subtitle */}
           <p
             ref={subtitleRef}
             className="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto opacity-0 transition-opacity duration-1000"
@@ -66,18 +65,21 @@ const Hero: React.FC = () => {
             Cuffley's premier car service for local journeys, airport transfers, and nationwide travel
           </p>
 
-          <div className="flex items-center justify-center opacity-0 animate-fade-in">
-          <a
-            aria-label="Chat on WhatsApp"
-            href="https://wa.me/44071200492340"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-transparent border-2 border-white hover:border-[#D4AF37] text-white hover:text-[#D4AF37] px-8 py-3 rounded-md text-lg font-medium transition-colors duration-300 min-w-[200px] flex items-center justify-center gap-2"
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in">
+            {/* WhatsApp Button */}
+            <a
+              aria-label="Chat on WhatsApp"
+              href="https://wa.me/44071200492340"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-transparent border-2 border-white hover:border-[#D4AF37] text-white hover:text-[#D4AF37] px-8 py-3 rounded-md text-lg font-medium transition-colors duration-300 min-w-[200px] flex items-center justify-center gap-2"
             >
-            <img src={whtsapp} alt="WhatsApp" className="w-6 h-6" />
-        WhatsApp
-      </a>
-    </div>
+              <img src={whtsapp} alt="WhatsApp" className="w-6 h-6" />
+              WhatsApp
+            </a>
+
+            {/* Book Online Button */}
             <a
               href="#booking"
               className="bg-transparent border-2 border-white hover:border-[#D4AF37] text-white hover:text-[#D4AF37] px-8 py-3 rounded-md text-lg font-medium transition-colors duration-300 min-w-[200px]"
@@ -96,6 +98,7 @@ const Hero: React.FC = () => {
           <ChevronDown size={40} />
         </button>
       </div>
+    </section>
   );
 };
 

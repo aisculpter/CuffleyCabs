@@ -73,10 +73,14 @@ const Hero: React.FC = () => {
               href="https://wa.me/44071200492340"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-transparent border-2 border-white hover:border-[#D4AF37] text-white hover:text-[#D4AF37] px-8 py-3 rounded-md text-lg font-medium transition-colors duration-300 min-w-[200px] flex items-center justify-center gap-2"
-            >
-              <img src={whtsapp} alt="WhatsApp" className="w-50 h-50" />
-            </a>
+              className="min-w-[200px] h-[56px] flex items-center justify-center border-2 border-white hover:border-[#D4AF37] rounded-md transition-colors duration-300 p-1"
+            > 
+            <img
+              src={whtsapp}
+              alt="WhatsApp"
+              className="h-full object-contain"
+            />
+          </a>
 
             {/* Book Online Button */}
             <a

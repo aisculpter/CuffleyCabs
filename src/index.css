@@ -27,13 +27,22 @@
   }
 }
 
+@keyframes fadeInText {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
 .animate-typing {
+  animation: fadeInText 0.8s ease-in forwards;
+}
+
+/* .animate-typing {
   display: inline-block;
-  animation: typing 1.5s steps(30, end) forwards;
+  animation: typing 1.8s steps(40, end) forwards;
   white-space: nowrap;
   overflow: hidden;
   border-right: 4px solid #D4AF37;
-}
+} */
 
 .animate-fade-in {
   animation: fadeIn 1s ease-in forwards;

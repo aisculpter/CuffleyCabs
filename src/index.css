@@ -29,7 +29,7 @@
 
 .animate-typing {
   display: inline-block;
-  animation: typing 1.5s steps(40, end) forwards, blink 0.7s step-end infinite;
+  animation: typing 1.5s steps(30, end) forwards;
   white-space: nowrap;
   overflow: hidden;
   border-right: 4px solid #D4AF37;

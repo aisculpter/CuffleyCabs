@@ -52,7 +52,7 @@ const Hero: React.FC = () => {
           {/* Animated Tagline */}
           <h1
             ref={taglineRef}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 animate-typing"
+            className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 animate-typing max-w-xs sm:max-w-2xl mx-auto leading-tight text-balance break-words text-center"
           >
             <span className="text-[#D4AF37]">Wherever</span> You Need To Go
           </h1>

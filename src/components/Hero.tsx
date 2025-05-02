@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
-import bgImg from '../bg-img.png';
+import bgImg from '../bg-img-min.png';
 import whtsapp from '../WhatsAppButtonGreenSmall.png';
 
 const Hero: React.FC = () => {

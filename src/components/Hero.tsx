@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react';
-import { ChevronDown } from 'lucide-react';
-import bgImg from '../bg-img-min.png';
-import whtsapp from '../WhatsAppButtonGreenSmall.png';
+import React, { useEffect, useRef } from "react";
+import { ChevronDown } from "lucide-react";
+import bgImg from "../bg-img-min.png";
+import whtsapp from "../WhatsAppButtonGreenSmall.png";
 
 const Hero: React.FC = () => {
   const taglineRef = useRef<HTMLHeadingElement>(null);
@@ -11,24 +11,24 @@ const Hero: React.FC = () => {
     // Animate tagline typing effect
     if (taglineRef.current) {
       setTimeout(() => {
-        taglineRef.current?.classList.remove('w-0');
-        taglineRef.current?.classList.add('w-full');
+        taglineRef.current?.classList.remove("w-0");
+        taglineRef.current?.classList.add("w-full");
       }, 300);
     }
 
     // Fade in subtitle
     if (subtitleRef.current) {
       setTimeout(() => {
-        subtitleRef.current?.classList.remove('opacity-0');
-        subtitleRef.current?.classList.add('opacity-100');
+        subtitleRef.current?.classList.remove("opacity-0");
+        subtitleRef.current?.classList.add("opacity-100");
       }, 1000);
     }
   }, []);
 
   const scrollToServices = () => {
-    const servicesSection = document.getElementById('services');
+    const servicesSection = document.getElementById("services");
     if (servicesSection) {
-      servicesSection.scrollIntoView({ behavior: 'smooth' });
+      servicesSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -62,25 +62,26 @@ const Hero: React.FC = () => {
             ref={subtitleRef}
             className="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto opacity-0 transition-opacity duration-1000"
           >
-            Cuffley's premier car service for local journeys, airport transfers, and nationwide travel
+            Cuffley's premier car service for local journeys, airport transfers,
+            and nationwide travel
           </p>
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in">
             {/* WhatsApp Button */}
             <a
-            aria-label="Chat on WhatsApp"
-            href="https://wa.me/44071200492340"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-md p-1 flex items-center justify-center"
+              aria-label="Chat on WhatsApp"
+              href="https://wa.me/44071200492340"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-md p-1 flex items-center justify-center"
             >
-            <img
-              src={whtsapp}
-              alt="WhatsApp"
-              className="h-12 w-auto rounded-md"
-            />
-          </a>
+              <img
+                src={whtsapp}
+                alt="WhatsApp"
+                className="h-12 w-auto rounded-md"
+              />
+            </a>
 
             {/* Book Online Button */}
             <a
@@ -89,7 +90,6 @@ const Hero: React.FC = () => {
             >
               Book Online
             </a>
-
           </div>
         </div>
 

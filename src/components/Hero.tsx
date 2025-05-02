@@ -59,12 +59,12 @@ const Hero: React.FC = () => {
 
           {/* Subtitle */}
           <p
-            ref={subtitleRef}
-            className="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto opacity-0 transition-opacity duration-1000"
+          ref={subtitleRef}
+          className="text-base sm:text-lg md:text-2xl text-white mb-8 max-w-xs sm:max-w-md md:max-w-3xl mx-auto opacity-0 transition-opacity duration-1000 text-center leading-snug"
           >
-            Cuffley's premier car service for local journeys, airport transfers,
-            and nationwide travel
+          Cuffley's premier car service for local journeys, airport transfers, and nationwide travel
           </p>
+
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in">

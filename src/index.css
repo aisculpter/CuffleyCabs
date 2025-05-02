@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @keyframes typing {
-  from { width: 0ch }
-  to { width: 26ch }
+  from { width: 0 }
+  to { width: 1000px }
 }
 
 @keyframes blink {
@@ -29,7 +29,7 @@
 
 .animate-typing {
   display: inline-block;
-  animation: typing 1.5s steps(40, end) forwards;
+  animation: typing 1.5s steps(40, end) forwards, blink 0.7s step-end infinite;
   white-space: nowrap;
   overflow: hidden;
   border-right: 4px solid #D4AF37;

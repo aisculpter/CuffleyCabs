@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
       setTimeout(() => {
         taglineRef.current?.classList.remove('w-0');
         taglineRef.current?.classList.add('w-full');
-      }, 500);
+      }, 300);
     }
 
     // Fade in subtitle
@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
       setTimeout(() => {
         subtitleRef.current?.classList.remove('opacity-0');
         subtitleRef.current?.classList.add('opacity-100');
-      }, 2000);
+      }, 1000);
     }
   }, []);
 

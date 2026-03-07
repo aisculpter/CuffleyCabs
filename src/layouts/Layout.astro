@@ -1,0 +1,65 @@
+---
+import '../index.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+  ogTitle?: string;
+  schema?: object | object[];
+}
+
+const {
+  title,
+  description,
+  canonicalUrl = Astro.url.href,
+  ogTitle,
+  schema,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="Cuffley taxi, cab service Cuffley, airport transfers, private hire Cuffley, book taxi Cuffley, minicab Cuffley"
+    />
+    <meta name="author" content="Cuffley Cars" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={ogTitle ?? title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle ?? title} />
+    <meta name="twitter:description" content={description} />
+
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+  </head>
+  <body>
+    <!-- Netlify form detection template -->
+    <form name="booking" method="POST" data-netlify="true" hidden>
+      <input type="text" name="name" />
+      <input type="tel" name="phone" />
+      <input type="email" name="email" />
+      <input type="text" name="pickupLocation" />
+      <input type="text" name="destination" />
+      <input type="date" name="date" />
+      <input type="time" name="time" />
+      <select name="passengers"><option>1</option></select>
+      <textarea name="message"></textarea>
+    </form>
+
+    <slot />
+  </body>
+</html>

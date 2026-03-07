@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header';
+import Hero from '../components/Hero';
+import Services from '../components/Services';
+import About from '../components/About';
+import Testimonials from '../components/Testimonials';
+import Contact from '../components/Contact';
+import Footer from '../components/Footer';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'TaxiService',
+  name: 'Cuffley Cars',
+  url: 'https://cuffleycars.netlify.app/',
+  telephone: '+441234567890',
+  email: 'cuffleycabs@gmail.com',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Station Road',
+    addressLocality: 'Cuffley',
+    addressRegion: 'Hertfordshire',
+    postalCode: 'EN6 4HZ',
+    addressCountry: 'GB',
+  },
+  areaServed: { '@type': 'Place', name: 'Cuffley, Hertfordshire' },
+  priceRange: '££',
+  description:
+    'Professional private hire taxi and airport transfer service operating in Cuffley and surrounding areas.',
+  openingHours: 'Mo-Su 00:00-23:59',
+};
+---
+
+<Layout
+  title="Cuffley's Premier Private Hire Cab & Airport Transfer Service"
+  description="Reliable private hire cab service in Cuffley for local journeys, airport transfers, and nationwide travel. Book online or call now."
+  canonicalUrl="https://cuffleycars.netlify.app/"
+  schema={schema}
+>
+  <div class="font-sans">
+    <Header client:load />
+    <Hero client:load />
+    <Services />
+    <About />
+    <Testimonials client:visible />
+    <Contact client:visible />
+    <Footer client:load />
+  </div>
+</Layout>

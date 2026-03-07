@@ -1,0 +1,182 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header';
+import Contact from '../components/Contact';
+import Footer from '../components/Footer';
+import { routes } from '../data/routes';
+import type { RouteData } from '../data/routes';
+
+export function getStaticPaths() {
+  return routes.map((route) => ({
+    params: { slug: route.slug },
+    props: { route },
+  }));
+}
+
+const { route } = Astro.props as { route: RouteData };
+
+const title = `${route.origin} to ${route.destination} Taxi | From £${route.priceFrom} | Cuffley Cabs`;
+const description = `Book a fixed-price taxi from ${route.origin} to ${route.destination} from £${route.priceFrom}. Professional private hire, flight tracking included. Available 24/7 — book online now.`;
+const canonicalUrl = `https://cuffleycars.netlify.app/${route.slug}`;
+
+const hours = Math.floor(route.durationMins / 60);
+const mins = route.durationMins % 60;
+const durationStr =
+  hours > 0
+    ? `${hours}h ${mins > 0 ? `${mins}m` : ''}`.trim()
+    : `${mins} min`;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'TaxiService',
+      name: 'Cuffley Cabs',
+      url: canonicalUrl,
+      telephone: '+441234567890',
+      email: 'cuffleycabs@gmail.com',
+      description,
+      areaServed: [
+        { '@type': 'Place', name: route.origin },
+        { '@type': 'Place', name: route.destination },
+      ],
+      priceRange: '££',
+      openingHours: 'Mo-Su 00:00-23:59',
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: route.faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+      })),
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cuffleycars.netlify.app/' },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: `${route.origin} to ${route.destination} Taxi`,
+          item: canonicalUrl,
+        },
+      ],
+    },
+  ],
+};
+---
+
+<Layout {title} {description} {canonicalUrl} schema={schema}>
+  <div class="font-sans">
+    <Header client:load />
+
+    <!-- Route Hero -->
+    <section class="bg-gray-900 text-white pt-32 pb-20 px-4">
+      <div class="container mx-auto max-w-4xl">
+        <!-- Breadcrumb -->
+        <nav class="text-sm text-gray-400 mb-6">
+          <a href="/" class="hover:text-[#D4AF37] transition-colors">Home</a>
+          <span class="mx-2">›</span>
+          <span class="text-white">{route.origin} to {route.destination}</span>
+        </nav>
+
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
+          <span class="text-[#D4AF37]">{route.origin}</span> to {route.destination} Taxi
+        </h1>
+
+        <p class="text-lg text-gray-300 mb-8 max-w-2xl">
+          Fixed-price private hire. Flight tracking included. Available 24/7.
+        </p>
+
+        <!-- Stats chips -->
+        <div class="flex flex-wrap gap-4 mb-10">
+          <div class="bg-gray-800 rounded-lg px-5 py-3 text-center">
+            <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">From</p>
+            <p class="text-2xl font-bold text-[#D4AF37]">£{route.priceFrom}</p>
+            <p class="text-xs text-gray-400">fixed price</p>
+          </div>
+          <div class="bg-gray-800 rounded-lg px-5 py-3 text-center">
+            <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Distance</p>
+            <p class="text-2xl font-bold text-white">~{route.distanceMiles}</p>
+            <p class="text-xs text-gray-400">miles</p>
+          </div>
+          <div class="bg-gray-800 rounded-lg px-5 py-3 text-center">
+            <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Est. Journey</p>
+            <p class="text-2xl font-bold text-white">{durationStr}</p>
+            <p class="text-xs text-gray-400">approx.</p>
+          </div>
+        </div>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            href="#booking"
+            class="inline-block bg-[#D4AF37] hover:bg-[#C4A030] text-black font-semibold px-8 py-3 rounded-md transition-colors duration-300 text-center"
+          >
+            Book This Journey
+          </a>
+          <a
+            href="https://wa.me/44071200492340"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block border-2 border-white hover:border-[#D4AF37] text-white hover:text-[#D4AF37] px-8 py-3 rounded-md transition-all duration-300 text-center"
+          >
+            WhatsApp Us
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- What's Included -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="text-2xl md:text-3xl font-bold mb-8">What's Included</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {
+            [
+              ['Fixed price — agreed upfront', 'No meters, no surge pricing'],
+              ['Flight monitoring', 'We track your flight in real time'],
+              ['Free waiting time', '60 min free wait on airport arrivals'],
+              ['Meet & greet', 'Driver waits in arrivals with name board'],
+              ['24/7 availability', 'Early mornings, late nights, weekends'],
+              ['Professional drivers', 'Licensed, DBS checked, fully insured'],
+            ].map(([title, desc]) => (
+              <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
+                <span class="text-[#D4AF37] text-xl mt-0.5">✓</span>
+                <div>
+                  <p class="font-semibold text-gray-900">{title}</p>
+                  <p class="text-sm text-gray-500">{desc}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="text-2xl md:text-3xl font-bold mb-8">
+          Frequently Asked Questions
+        </h2>
+        <div class="space-y-6">
+          {
+            route.faqs.map((faq) => (
+              <div class="bg-white rounded-lg p-6 shadow-sm">
+                <h3 class="font-semibold text-gray-900 mb-2">{faq.question}</h3>
+                <p class="text-gray-600 leading-relaxed">{faq.answer}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking Form -->
+    <Contact client:visible />
+
+    <Footer client:load />
+  </div>
+</Layout>

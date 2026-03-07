@@ -7,6 +7,7 @@ const Hero: React.FC = () => {
   const taglineRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
 
+
   useEffect(() => {
     // Animate tagline typing effect
     if (taglineRef.current) {

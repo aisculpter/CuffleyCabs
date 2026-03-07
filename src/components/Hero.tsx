@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { ChevronDown } from "lucide-react";
-import bgImg from "../bg-img-min.png";
-import whtsapp from "../WhatsAppButtonGreenSmall.png";
+
+const bgImg = "/bg-img-min.png";
+const whtsapp = "/WhatsAppButtonGreenSmall.png";
 
 const Hero: React.FC = () => {
   const taglineRef = useRef<HTMLHeadingElement>(null);
